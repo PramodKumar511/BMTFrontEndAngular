@@ -1,0 +1,77 @@
+
+<head>
+	<title> TICKETING PLATFORM</title>
+</head>
+
+<body>
+	<div class="body">
+		<app-tp-header></app-tp-header>
+
+		<div class='card'>
+			<div class='loginScreen'>
+				<div class='tag'>This application helps you to list and sell your tickets for the sports event and
+					concert.</div>
+
+				<div class="imgs">
+					<img *ngFor="let image of images" [src]="image.img" width="200" height="100">
+				</div>
+
+			</div>
+			<div class='nloginScreen'>
+				<form>
+					<table>
+						<tr>
+							<th colspan="2">
+								<div class="text"> Log In to Your Account </div>
+							</th>
+						</tr>
+						<tr>
+							<td>
+								<label> User Name </label>
+							</td>
+							<td>
+								<input type="text" [value]="Email_Address_Value" [ngClass]="{'inp':true}"
+									(click)="inpclick($event)">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label> Password </label>
+							</td>
+							<td>
+								<input type="password" [value]="Password_Value" maxlength="8" [class]='pwd_class'
+									(click)="pwdclick($event)">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<button type="submit"> Sign In</button>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<a href="http://localhost:4200/forgotpassword">Forgotten password? </a>
+							</td>
+						</tr>
+
+						<tr>
+							<td colspan="2">
+								<button class="button1" type="submit" (click)="goToPage()"> Create new Account</button>
+								<label>{{ticketNo}}</label>
+							</td>
+						</tr>
+					</table>
+
+				</form>
+				
+			</div>
+		
+		</div>
+		<div class="c-account">
+		
+		</div>
+		
+		<app-tp-footer></app-tp-footer>
+		
+	</div>

@@ -1,0 +1,29 @@
+
+
+<div class="payment_div">
+    <table class="table2">
+        <tr>
+            <th>Credit Card </th>
+            <th>Expiration </th>
+        </tr>
+        <tr>
+            <td><input type="text" #cardno></td>
+            <td> <input type="date" #carddate></td>
+
+        </tr>
+        <tr>
+            <td colspan="2"><button (click)="onpay($event, cardno.value, carddate.value)"> pay</button></td>
+        </tr>
+
+        <tr>
+
+            <td colspan="2"><label> {{details}}{{tktevent_id}}</label>
+           
+            </td>
+        </tr>
+
+    </table>
+
+</div>
+
+

@@ -1,0 +1,41 @@
+.event_div{
+    border-style:solid;
+    width: 400px;
+    top:150px;
+    left: 100px;
+    position: absolute;
+    height: 600px;
+}
+.payment_div
+{
+    border-style:solid;
+    width: 400px;
+    top:150px;
+    right: 100px;
+    position: absolute;
+    height: 400px;   
+}
+
+
+.table2{
+    padding: 2px;
+    border-radius: 2px;
+       background-color: white;
+       position: absolute;
+       width: 400px;
+       top:100px;
+          }
+
+    
+
+th{
+    border-right: solid;
+    background-color: rgb(117, 162, 219);
+
+}
+td{
+    border-right: solid;
+    border-top: solid;
+    padding: 10px; 
+    text-align: center;
+}

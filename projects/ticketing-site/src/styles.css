@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+
+  .text {
+    font-size: 30px;
+    text-align: center;
+    font-weight: Normal;
+    font-family: Helvetica;
+ 
+  
+  
+  }
+
+  .body {
+    background-color: #c4b1c4;
+    border-style: solid;
+    border-radius: 10px;
+    height: 950px;
+    width: 100%;
+    border: inset #525050;
+    border-style: solid;
+  }
