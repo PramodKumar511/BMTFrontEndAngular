@@ -13,6 +13,7 @@ import { PaymentComponent } from './payment/payment.component';
 import {HttpClientModule} from '@angular/common/http';
 import { EventCardComponent } from './event-card/event-card.component';
 import { SellticketsComponent } from './selltickets/selltickets.component';
+import { MyordersComponent } from './myorders/myorders.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SellticketsComponent } from './selltickets/selltickets.component';
     MainComponent,
     PaymentComponent,
     EventCardComponent,
-    SellticketsComponent
+    SellticketsComponent,
+    MyordersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,7 @@ import { SellticketsComponent } from './selltickets/selltickets.component';
         path:'', component: MainComponent},
         {path: 'register', component: CreateAccountComponent},
         {path:'forgotpassword', component:ForgotpasswordComponent},
-         {path:'home', component:HomeComponent}
+         {path:'login', component:HomeComponent}
     ]),
 HttpClientModule
 

@@ -1,4 +1,4 @@
-.table2{
+.table3{
     padding: 2px;
     border-radius: 2px;
        background-color: white;
@@ -12,12 +12,12 @@
 
 .payment_div
 {
-    border-style:solid;
+  
     width: 400px;
-    top:150px;
+    top:250px;
     right: 100px;
     position: absolute;
-    height: 400px;   
+    height: 200px;   
 }
 
 td{
@@ -25,4 +25,9 @@ td{
 
     padding: 10px; 
     text-align: center;
+}
+
+.trheader
+{
+    text-decoration: solid;
 }

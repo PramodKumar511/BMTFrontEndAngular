@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { carddetails } from '../model/carddetails';
 
 @Component({
   selector: 'app-payment',
@@ -7,33 +8,38 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PaymentComponent {
 
-@Input('tkteventid')  tktevent_id:any;
-@Input('abc') details:any;
+  constructor() { }
 
-mycarddetails:{mycardno:number,mycarddate:string}[]=[{mycardno:0, mycarddate:""}]
+  @Input() eventdetailsforpayment: any;
 
-//details:string="Payment Intiated for " ;
+  cardnumber: number = 0;
+  carddate: string = "";
 
-@Output()
-buy:EventEmitter<any>=new EventEmitter<any>();
+  oncardnoinput(cardnumber: string) {
+    this.cardnumber = parseInt(cardnumber);
+  }
+  oncarddate(carddate: string) {
+    this.carddate = carddate;
+  }
 
-onpay(event:MouseEvent, cardnumber:string, carddate:string)
-{
-  this.mycarddetails[0].mycardno=parseInt(cardnumber);
-  this.mycarddetails[0].mycarddate=carddate;
-console.log(this.mycarddetails[0].mycardno);
-console.log(this.mycarddetails[0].mycarddate);
-this.buy.emit(this.mycarddetails);
-if(this.mycarddetails[0].mycardno>0){
-this.details="Payment Successfull for";}
-else{
-    this.details="Ivalid Card details entered for";
-}
+  mycarddetails: carddetails = { mycardno: 123456789, mycarddate: "", trasactionstatus: "" }
 
+  @Output()
+  recieved: EventEmitter<carddetails> = new EventEmitter<carddetails>();
 
-}
+  onpay(event: MouseEvent) {
 
+    this.recieved.emit(this.mycarddetails);
 
+    if (this.mycarddetails.mycardno == this.cardnumber) {
+
+      this.mycarddetails.trasactionstatus = "Payment Successfull for " + this.eventdetailsforpayment.eventname;
+    }
+    else {
+      this.mycarddetails.trasactionstatus = "Ivalid Card details entered";
+    }
+   
+  }
 
 
 }

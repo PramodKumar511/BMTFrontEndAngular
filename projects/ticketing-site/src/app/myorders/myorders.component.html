@@ -1,0 +1,29 @@
+<div>
+    <div class="event_div">
+        <table class="table2">
+
+            <tr>
+                <th colspan="4"> <p class="theader">My Orders</p></th>
+           
+            </tr> 
+
+            <tr>
+                <td> <p class="pheader">Purchase Order Id</p></td>
+                <td> <p class="pheader">Event Name</p></td>
+                <td><p class="pheader">Ticket Number</p></td>
+                <td> <p class="pheader">Ticket Price</p></td>
+            </tr>        
+  
+            <tr *ngFor="let myOrder of myOrders">   
+                <td> <p class="pheader">{{myOrder.purchaseOrderNumber}}</p></td>
+                <td> <p class="pheader">{{myOrder.eventname}}</p></td>
+                <td><p class="pheader">{{myOrder.ticketNo}}</p></td>
+                <td><p class="pheader">{{myOrder.Price}}</p></td>
+            </tr>
+
+           
+         
+        </table>
+    </div>
+    
+</div>

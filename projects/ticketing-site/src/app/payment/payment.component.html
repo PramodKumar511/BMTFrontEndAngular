@@ -1,29 +1,20 @@
-
-
-<div class="payment_div">
+<div class="payment_div" >
     <table class="table2">
         <tr>
             <th>Credit Card </th>
             <th>Expiration </th>
         </tr>
         <tr>
-            <td><input type="text" #cardno></td>
-            <td> <input type="date" #carddate></td>
-
+            <td><input type="text" #cardno (keyup)="oncardnoinput(cardno.value)"></td>
+            <td> <input type="date" #carddate (keyup)="oncarddate(carddate.value)"></td>
         </tr>
         <tr>
-            <td colspan="2"><button (click)="onpay($event, cardno.value, carddate.value)"> pay</button></td>
+            <td colspan="2"><button (click)="onpay($event)"> pay</button></td>
         </tr>
-
         <tr>
-
-            <td colspan="2"><label> {{details}}{{tktevent_id}}</label>
-           
+            <td colspan="2"><label> {{mycarddetails.trasactionstatus}}</label>
             </td>
         </tr>
-
     </table>
 
 </div>
-
-
