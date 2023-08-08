@@ -2,15 +2,16 @@
     <app-tp-header></app-tp-header>
     <div class="ribbon">
         <table class="table1">
-            <th class="th1"><a href=""> Home</a></th>
-            <th class="th1"><a href=""> My Orders</a></th>
-            <th class="th1"><a href=""> Sell Tickets</a></th>
-            <th class="th1"><a href=""> Sign Out</a></th>
+            <th class="th1"><button class="button1" (click)="isTabselected($event,0)"> Home</button></th>
+            <th class="th1"><button class="button1" (click)="isTabselected($event,1)">My Orders</button></th>
+            <th class="th1"><button class="button1" (click)="isTabselected($event,2)">Sell Tickets</button></th>
+            <th class="th1"><button class="button1" (click)="isTabselected($event,3)">Sign Out</button></th>
         </table>
     </div>
+  <app-event-card *ngIf="currentTab==0"></app-event-card>
+  <app-myorders *ngIf="currentTab==1"></app-myorders>
+  <app-selltickets *ngIf="currentTab==2"></app-selltickets>
 
-
-  <app-event-card></app-event-card>
-
+   
     <app-tp-footer></app-tp-footer>
 </div>

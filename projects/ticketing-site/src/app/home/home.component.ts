@@ -10,7 +10,11 @@ export class HomeComponent {
 
   constructor(private router:Router){}
 
-
+  currentTab=0;
+  isTabselected(event:MouseEvent, tabIndex: number)
+  {
+    this.currentTab=tabIndex;
+  }
 
 
 }

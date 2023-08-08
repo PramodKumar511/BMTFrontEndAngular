@@ -1,19 +1,21 @@
 <div>
-<div class="event_div">
-    <table class="table2" >
-        <tr *ngFor="let tktevent of tktevents">
-         
-            <td> {{tktevent.event_name}}</td>
-            <td>{{tktevent.Price}} </td>
-            <td> <button (click)="BuyTicket($event, tktevent.event_name, abc)">Buy</button></td>
-        
-        </tr>
-        <tr>
-            <td colspan="3"> <label>{{cardno}}</label></td>
-        </tr>
-    </table>
-</div>
+    <div class="event_div">
+        <table class="table2">
+            <tr>
+                <td colspan="3"> <label *ngIf="eventdetails.eventname"> Payment Intiated for {{eventdetails.eventname}}</label></td>
+            </tr>
+            <tr><td> <p class="pheader">Event Name</p></td>
+                <td> <p class="pheader">Ticket Price</p></td>
+                <td> </td></tr>
 
-    <app-payment [tkteventid]="eventname" (recieved)="paydetails($event)"></app-payment>
-</div>
+            <tr *ngFor="let tktevent of tktevents">
+                <td> {{tktevent.event_name}}</td>
+                <td>{{tktevent.Price}} </td>
+                <td> <button (click)="BuyTicket($event,tktevent.id,tktevent.event_name,tktevent.Price)">
+                        Buy</button></td>
+            </tr>
 
+        </table>
+    </div>
+    <app-payment [eventdetailsforpayment]="eventdetails" (recieved)="onrecieved($event)"></app-payment>
+</div>

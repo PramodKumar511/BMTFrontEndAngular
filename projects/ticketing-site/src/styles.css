@@ -21,3 +21,13 @@
     border: inset #525050;
     border-style: solid;
   }
+
+  .table2 {
+  
+    position: absolute;
+    left: 20px;
+    background-color: #e6e6fa;
+    border-radius: 10px;
+    position: absolute;
+}
+  
