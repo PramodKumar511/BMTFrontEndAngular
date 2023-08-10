@@ -1,4 +1,4 @@
-
+<!-- 
 <head>
 	<title> TICKETING PLATFORM</title>
 </head>
@@ -18,7 +18,7 @@
 
 			</div>
 			<div class='nloginScreen'>
-				<form>
+				<form [formGroup]="loginForm" (ngSubmit)="login()"  #f="ngForm" novalidate>
 					<table>
 						<tr>
 							<th colspan="2">
@@ -30,8 +30,7 @@
 								<label> User Name </label>
 							</td>
 							<td>
-								<input type="text" [value]="Email_Address_Value" [ngClass]="{'inp':true}"
-									(click)="inpclick($event)">
+								<input formControlName = "username" type="text" class="form-control" id="username" placeholder="Enter Username">
 							</td>
 						</tr>
 						<tr>
@@ -39,13 +38,12 @@
 								<label> Password </label>
 							</td>
 							<td>
-								<input type="password" [value]="Password_Value" maxlength="8" [class]='pwd_class'
-									(click)="pwdclick($event)">
+								<input formControlName = "password" type="password" class="form-control" id="password" placeholder="Enter Password">
 							</td>
 						</tr>
 						<tr>
 							<td colspan="2">
-								<button type="submit"> Sign In</button>
+								<button type="submit" class="btn btn-primary">Sign In</button>
 							</td>
 						</tr>
 
@@ -74,4 +72,112 @@
 		
 		<app-tp-footer></app-tp-footer>
 		
+	</div> -->
+
+
+
+
+<html>
+
+<body class="mainbg">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="text-center">
+						<h1>Login to</h1>
+						<h1>Book My Ticket</h1>
+						<h6>Please enter Username & password !</h6>
+					</div>
+
+					<form [formGroup]="loginForm" (ngSubmit)="login()" #f="ngForm" novalidate>
+						<div class="mb-3">
+							<label for="username" class="form-label">Username or emailId</label>
+							<input formControlName="username" type="text" class="form-control" id="username"
+								placeholder="Enter Username">
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Password</label>
+							<input formControlName="password" type="password" class="form-control" id="password"
+								placeholder="Enter Password">
+						</div>
+
+
+						<div class="form-group">
+							<div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+								Login failed: {{ error }}
+							</div>
+						</div>
+
+						<div class="mx-auto" style="width: 200px;">
+
+							<button type="submit" class="btn btn-primary bt1">Login</button>
+
+
+
+							<button type="submit" class="btn btn-primary bt2" (click)="goToPage()">Sign Up</button>
+						</div>
+
+
+
+
+
+
+
+
+
+						<div class="mx-auto" style="width: 200px;">
+							<a href="http://localhost:4200/forgotpassword">Forgotten password? </a>
+						</div>
+					</form>
+
+
+
+
+					<!-- <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm"
+                        novalidate>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+                                #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+                            <div *ngIf="username.errors && f.submitted" class="invalid-feedback">
+                                Username is required!
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" [(ngModel)]="form.password"
+                                required minlength="6" #password="ngModel"
+                                [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+                            <div *ngIf="password.errors && f.submitted" class="invalid-feedback">
+                                <div *ngIf="password.errors['required']">Password is required</div>
+                                <div *ngIf="password.errors['minlength']">
+                                    Password must be at least 6 characters
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-block">
+                                Login
+                            </button>
+                        </div>
+                        <div class="form-group">
+                            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                                Login failed: {{ errorMessage }}
+                            </div>
+                        </div>
+                    </form> -->
+
+
+
+
+
+
+					<!-- <a style="color:bisque; margin-top: 10px;" routerLink="/signup">New user? Click to sign up </a> -->
+				</div>
+			</div>
+		</div>
 	</div>
+</body>
+
+</html>

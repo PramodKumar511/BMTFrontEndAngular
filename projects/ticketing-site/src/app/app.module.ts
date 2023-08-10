@@ -10,14 +10,26 @@ import { HomeComponent } from './home/home.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 import { MainComponent } from './main/main.component';
 import { PaymentComponent } from './payment/payment.component';
-import {HttpClientModule} from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { EventCardComponent } from './event-card/event-card.component';
 import { SellticketsComponent } from './selltickets/selltickets.component';
 import { MyordersComponent } from './myorders/myorders.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+import { FormatTimePipe, PurchasemodalComponent } from './modal/purchasemodal/purchasemodal.component';
+import { SuccessmodalComponent } from './modal/successmodal/successmodal.component';
+import { FailuremodalComponent } from './modal/failuremodal/failuremodal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { JwtInterceptor } from './services/jwt.interceptor';
+import { ErrorInterceptor } from './services/error.interceptor';
+import { CactivateGuard } from './cactivate.guard';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FormatTimePipe,
     TpHeaderComponent,
     TpFooterComponent,
     CreateAccountComponent,
@@ -27,24 +39,55 @@ import { MyordersComponent } from './myorders/myorders.component';
     PaymentComponent,
     EventCardComponent,
     SellticketsComponent,
-    MyordersComponent
+    MyordersComponent,
+    LoginComponent,
+    PurchasemodalComponent,
+    SuccessmodalComponent,
+    FailuremodalComponent,
   ],
   imports: [
+    ReactiveFormsModule,
+    CountdownModule,
     BrowserModule,
-        RouterModule.forRoot([
+    FormsModule,
+    TabsModule.forRoot(),
+    ModalModule.forRoot(),
+    RouterModule.forRoot([
       {
-        path:'', component: MainComponent},
-        {path: 'register', component: CreateAccountComponent},
-        {path:'forgotpassword', component:ForgotpasswordComponent},
-         {path:'login', component:HomeComponent}
+        path: 'login',
+        component: HomeComponent
+      },
+      {
+        path: 'main',
+        component: MainComponent
+      },
+      {
+        path: 'register',
+        component: CreateAccountComponent
+      },
+      {
+        path: 'forgotpassword',
+        component: ForgotpasswordComponent
+      },
+      {
+        path: '', component: MainComponent, canActivate: [CactivateGuard],
+        children: [
+          // { path: '', component: MainComponent },
+          { path: 'main', component: MainComponent },
+          { path: 'register', component: CreateAccountComponent },
+          { path: 'forgotpassword', component: ForgotpasswordComponent },
+          { path: 'login', component: HomeComponent }
+        ]
+      }
     ]),
-HttpClientModule
+    HttpClientModule
 
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
-  
+
 }

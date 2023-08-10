@@ -1,39 +1,24 @@
-.event_div{
-        width: 400px;
-    top:200px;
-    left: 100px;
-    position: absolute;
-    height: 600px;
-}
-.payment_div
-{
-    border-style:solid;
-    width: 400px;
-    top:150px;
-    right: 100px;
-    position: absolute;
-    height: 400px;   
+table > thead > th {
+  background-color: rgba(215, 194, 236, 0.454);
+  height: 25px;
+  padding: 10px;
 }
 
-    
+table > tbody > tr > td {
+  height: 25px;
+  padding: 10px;
+} 
 
-th{
-       background-color: rgb(117, 162, 219);
-}
-td{
-  
-   
-    padding: 5px; 
-    text-align: center;
+table {
+    width: 60%;
 }
 
-label{
-    color: green;
-}
-.pheader
-{
-   color: blueviolet;
-   padding: 0px;
-   
- 
-}
+/* table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  } */
+
+table.centerTable {
+    margin-left: 20%;
+    margin-right: auto;
+  }

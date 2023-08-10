@@ -1,4 +1,4 @@
-
+/* 
   
   
   .card {
@@ -119,4 +119,56 @@
   
   .inp1 {
     background-color: rgb(226, 118, 192);
+  } */
+
+
+
+.card {
+  opacity: 0.8;
+  margin-top: 10px;
+  border: none;
+  width: 500px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(230, 140, 44, 0.507);
+  background: linear-gradient(90deg, rgb(71, 46, 52) 0%, rgb(181, 153, 236) 100%);
+}
+
+.card h1,
+h6 {
+  color: bisque;
+}
+
+label {
+  color: bisque;
+}
+
+
+.btn1 {
+
+  margin-right: 100px;
+
+}
+
+.btn2{
+
+  margin-right: 50px;
+  
   }
+
+  /* .container {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../../assets/images/bmt_bg.jpg);
+    background-size: cover;
+} */
+
+.mainbg {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/images/bmt_bg.jpg);
+  background-size: cover;
+}
