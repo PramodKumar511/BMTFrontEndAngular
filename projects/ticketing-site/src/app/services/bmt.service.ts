@@ -55,5 +55,15 @@ export class BmtServices {
     return this.http.get(this.apiUrl+`/bmt/cancelOrder?orderId=${orderId}&eventId=${eventId}&emailId=${emailId}`);
   }
 
+  getOrders(emailId:any):Observable<any> {
+    return this.http.get(this.apiUrl+`/bmt/myOrders?emailId=${emailId}`);
+  }
+
+  saveEventData = (eventData : any) => {
+    console.log("Inside service about to add event data : "+eventData.eventName);
+    return this.http.post<any>(this.apiUrl+"/bmt/addEvent",eventData);
+  }
+
+
 }
 

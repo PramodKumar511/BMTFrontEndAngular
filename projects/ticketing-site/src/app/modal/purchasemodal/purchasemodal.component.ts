@@ -28,7 +28,7 @@ export class PurchasemodalComponent implements OnInit {
   cancelPurchase: any;
 
   countDown!: Subscription;
-  counter = 120;
+  counter = 10;
   tick = 1000;
 
   constructor(private service: BmtServices, private fb: FormBuilder, public bsModalRef: BsModalRef, private modalService: BsModalService) {
